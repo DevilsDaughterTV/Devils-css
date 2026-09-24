@@ -1,0 +1,554 @@
+/* ==========================================
+   LIODEN DEMON & HELLFIRE - DEVILS THEME
+   ========================================== */
+
+/* --- FONTS - Import from Google Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Montserrat:wght@400;600&display=swap');
+
+/* GPU Hardware-Beschleunigung für flüssiges Rendering in Brave/Chromium */
+* {
+  backface-visibility: hidden;
+}
+
+/* Dynamic Ember Animation */
+@keyframes emberRise {
+  0% {
+    background-position: 0 0, 0 0, 0 0, 0 0, 0 0, center center, center center;
+    opacity: 0.5;
+  }
+  50% {
+    opacity: 0.85;
+  }
+  100% {
+    background-position: -50px -1000px, 50px -500px, -30px -750px, 30px -250px, -20px -600px, center center, center center;
+    opacity: 0.5;
+  }
+}
+
+/* Pulsierender Dämonen-Glow (Optimiert) */
+@keyframes demonPulse {
+  0% { box-shadow: 0 0 10px rgba(255, 59, 0, 0.3); }
+  50% { box-shadow: 0 0 22px rgba(255, 106, 0, 0.65); }
+  100% { box-shadow: 0 0 10px rgba(255, 59, 0, 0.3); }
+}
+
+/* --- DEMON PULSE FÜR ALLE BOXEN & PANELS --- */
+.panel,
+.breadcrumb,
+.alert,
+div#commentBox,
+.feature,
+div.left,
+.cave-grid,
+.mound-grid {
+  border: 1px solid rgba(255, 59, 0, 0.3) !important;
+  will-change: box-shadow;
+  animation: demonPulse 3.5s infinite ease-in-out !important;
+}
+
+/* Schneller Seiten-Fade-In beim Laden */
+@keyframes fastFadeIn {
+  from { opacity: 0; transform: translateY(-4px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+body { font-family: 'Montserrat', sans-serif; }
+.topbar { font-family: 'Cinzel', serif; }
+.navbar { font-family: 'Cinzel', serif; }
+
+/* --- BACKGROUNDS (PC & Mobile) --- */
+@media screen and (min-width: 601px) { 
+  body {
+    background: 
+      radial-gradient(2px 2px at 20px 30px, #ff4500, rgba(0,0,0,0)),
+      radial-gradient(3px 3px at 40px 70px, #ff8c00, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 50px 160px, #ff0000, rgba(0,0,0,0)),
+      radial-gradient(3px 3px at 90px 40px, #ff6a00, rgba(0,0,0,0)),
+      radial-gradient(2px 2px at 130px 80px, #ffaa00, rgba(0,0,0,0)),
+      linear-gradient(rgba(8, 2, 2, 0.20), rgba(4, 0, 0, 0.45)),
+      url('https://files.catbox.moe/ho9oy1.jpg') center center fixed;
+    background-size: 200px 200px, 300px 300px, 150px 150px, 250px 250px, 350px 350px, cover, cover;
+    will-change: background-position;
+    animation: emberRise 25s linear infinite, fastFadeIn 0.4s ease-out forwards;
+    color: #f0e6e6; 
+  } 
+}
+
+@media screen and (max-width: 600px){
+  body {
+    background: #080202;
+    background-size: cover;
+    color: #f0e6e6; 
+  } 
+}
+
+/* --- LIODEN LOGO REPLACER (MOVED LEFT) --- */
+div.container.main > div:nth-child(1) > nav > div.navbar-header > a > img {
+  display: none !important;
+}
+
+div.container.main > div:nth-child(1) > nav > div.navbar-header > a::after {
+  content: '' !important;
+  display: block !important;
+  width: 192px !important;
+  height: 120px !important;
+  background-image: url('https://files.catbox.moe/oybtj7.png') !important;
+  background-size: contain !important;
+  background-repeat: no-repeat !important;
+  background-position: center !important;
+  position: relative !important;
+  margin-left: -50px !important;
+  margin-top: -10px !important;
+}
+
+/* --- SCROLL BOXES --- */
+::-webkit-scrollbar {
+  width: 7px;
+  height: 7px; 
+}
+::-webkit-scrollbar-track {
+  background: #0a0202;
+}
+::-webkit-scrollbar-thumb {
+  background: #ff3b00; 
+  border-radius: 3px;
+} 
+
+/* --- HEADERS --- */
+h1 {
+  font-family: 'Cinzel', serif !important;
+  font-size: 64px !important;
+  text-align: center !important;
+  font-weight: 800 !important;
+  display: block !important;
+  margin: 20px auto !important;
+
+  background: linear-gradient(180deg, #ffe066 0%, #ff6a00 45%, #b31400 90%) !important;
+  -webkit-background-clip: text !important;
+  -webkit-text-fill-color: transparent !important;
+
+  animation: pulseGlow 2.5s infinite ease-in-out !important;
+}
+
+h2 {
+  color: #ff5500 !important;
+  font-size: 24px;
+  font-family: 'Cinzel', serif !important;
+}
+
+h3 {
+  color: #ffaa00 !important;
+  font-size: 18px;
+  font-family: 'Cinzel', serif !important;
+}
+
+/* --- LINKS --- */
+a:link,
+a:visited {
+  color: #ff6a00 !important;
+  background: none !important; 
+  transition: all 0.2s ease-in-out;
+}
+
+a:hover {
+  color: #ffd000 !important;
+  text-shadow: 0 0 8px #ff2200, 0 0 14px #ff6a00;
+}
+
+/* --- MAIN PANEL (OPTIMIZED FOR PERFORMANCE & BRAVE) --- */
+.container.main {
+  background: rgba(10, 3, 3, 0.72) !important;
+  border: 1px solid rgba(255, 59, 0, 0.35) !important;
+  border-radius: 12px !important;
+  will-change: box-shadow;
+  transform: translateZ(0);
+  animation: demonPulse 3.5s infinite ease-in-out;
+  padding: 25px;
+  margin-top: 35px;
+  margin-bottom: 35px;
+}
+
+.col-md-9 {
+  background: none !important; 
+} 
+
+/* --- TOPBAR, NAVBAR, & BREADCRUMB --- */
+.topbar {
+  background: rgba(12, 3, 3, 0.85) !important;
+  color: #e5d8d8 !important;
+  border: none !important;
+  border-radius: 0px !important; 
+}
+
+.navbar {
+  background: rgba(12, 3, 3, 0.85) !important;
+  color: #e5d8d8 !important;
+  border: none !important;
+  border-bottom: 2px solid #ff3b00 !important;
+  border-radius: 0px !important; 
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.95);
+}
+
+.navbar li a {
+  position: relative;
+  transition: color 0.3s ease, text-shadow 0.3s ease !important;
+}
+
+.navbar li a:hover {
+  background: transparent !important; /* Block-Hintergrund komplett entfernt */
+  color: #ffcc00 !important; 
+  text-shadow: 0 0 12px #ff3b00, 0 0 22px #ff6a00 !important;
+}
+
+.navbar li a::after {
+  content: '' !important;
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background: linear-gradient(90deg, #ff3b00, #ffcc00);
+  transition: width 0.3s ease, left 0.3s ease;
+  box-shadow: 0 0 8px #ff3b00;
+}
+
+.navbar li a:hover::after {
+  width: 80% !important;
+  left: 10% !important;
+}
+
+.navbar-toggle {
+  border: none !important;
+  background: #300000 !important;
+}
+
+.navbar-collapse {
+  box-shadow: none !important;
+  border-top: none !important;
+}
+
+/* --- BOOKMARK BAR --- */
+.breadcrumb {
+  background: rgba(16, 4, 4, 0.75) !important;
+  color: #ff5500 !important;
+  border: 1px solid rgba(255, 59, 0, 0.3) !important;
+  border-radius: 4px !important;
+} 
+
+.breadcrumb .active {
+  color: #ffaa00; 
+}
+
+/* --- ALERTS --- */
+.alert {
+  background: rgba(35, 5, 5, 0.80) !important;
+  color: #ffffff !important;
+  border: 1px solid #ff4500 !important;
+  border-radius: 4px !important;
+  text-align: center !important; 
+}
+
+.alert-warning {
+  background: rgba(50, 12, 0, 0.80) !important;
+  color: #ffcc00 !important;
+}
+
+.alert-danger, .alert-success {
+  background: linear-gradient(90deg, rgba(35, 5, 5, 0.85), rgba(15, 2, 2, 0.85)) !important;
+  color: #ffaa00 !important;
+  border: 1px solid #ff5500 !important;
+  text-shadow: 0 0 6px rgba(255, 85, 0, 0.6) !important;
+}
+
+/* --- COMMENT BOX --- */
+div#commentBox {
+  background: rgba(16, 4, 4, 0.75) !important;
+  border: 1px solid rgba(255, 59, 0, 0.3) !important;
+  border-radius: 4px !important;
+  color: #e0d5d5 !important;
+}
+
+.comment {      
+  background: rgba(26, 6, 6, 0.70) !important;
+  border: none !important;
+  border-bottom: 1px solid rgba(255, 59, 0, 0.2) !important;
+  border-radius: 0px !important;
+  color: #e0d5d5 !important;
+  text-align: center !important;
+}
+
+.text-muted { 
+  color: #aaa0a0 !important; 
+}
+
+input.bad {
+  background: #6a0000 !important;
+  color: #ffffff !important;
+}
+
+input.bad a {
+  color: #ffaa00 !important; 
+}
+
+table#player.table hr {
+  display: none !important; 
+}
+
+table#player.table div.xlarge { 
+  margin-top: 10px !important; 
+}
+
+/* --- SIDE PANELS --- */
+.panel {
+  background: rgba(18, 5, 5, 0.75) !important;
+  color: #e0d5d5 !important;
+  border: 1px solid rgba(255, 59, 0, 0.35) !important;
+  border-radius: 8px !important;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.7) !important; 
+  transform: translateZ(0);
+}
+
+/* --- IMPRESSION / ALL PROGRESS BARS --- */
+.progress-bar {
+  background: linear-gradient(90deg, #990000, #ff5500) !important; 
+  border-radius: 3px !important; 
+}
+
+/* ENERGY */
+.progress-bar-warning { 
+  background: linear-gradient(90deg, #c24000, #ffaa00) !important;
+  color: #ffffff !important;
+}
+
+/* HUNGER */
+.progress-bar-danger { 
+  background: linear-gradient(90deg, #5e0000, #e60000) !important;
+  color: #ffffff !important;
+}
+
+/* EXP + ACHIEVEMENTS */
+.progress-bar-success { 
+  background: linear-gradient(90deg, #8c3200, #ff6600) !important;
+  color: #ffffff !important;
+}
+
+/* TEXT FOR ENERGY +% */
+.progress div {
+  color: #ffffff !important; 
+  font-weight: bold;
+}
+
+/* BACKGROUND PROGRESS BAR */
+.progress {
+  background: rgba(13, 2, 2, 0.8) !important;
+  color: #ffffff !important;
+  border: 1px solid rgba(255, 59, 0, 0.3);
+  border-radius: 4px !important; 
+}
+
+/* --- CHAT --- */
+button#label_currentChannel {
+  border: none !important;
+  background: #4a0000 !important; 
+}
+
+div#chatMessageContainer {
+  border: none !important; 
+}
+
+.s-chat-message_timestamp {
+  color: #ffaa00 !important; 
+}
+
+.s-chat-sidebar #fraChatChannelMenu,
+button.channelSwitcher, button.channelSwitcher.active {
+  background: rgba(42, 5, 5, 0.85) !important;
+  color: #ff5500 !important; 
+  border: 1px solid rgba(255, 59, 0, 0.35) !important;
+  border-radius: 3px !important;
+  box-shadow: none !important; 
+}
+
+div.emoteList.active, div.emoteList.active::before {
+  background: #120202 !important;
+  border: 1px solid #ff3b00 !important;
+  box-shadow: none !important;
+}
+
+/* PINNED MESSAGES AND CHAT MESSAGE COLORS */
+.s-chat-message__pinned {
+  background-color: rgba(87, 0, 0, 0.85) !important;
+  color: #ffffff !important;
+  border: 1px solid #ff4500 !important; 
+}
+
+.s-chat-message {
+  background: rgba(18, 3, 3, 0.75) !important;
+  color: #e0d5d5 !important;
+  border-bottom: 1px solid rgba(255, 59, 0, 0.15) !important; 
+}
+
+.s-chat-message:nth-child(even) {
+  background: rgba(26, 4, 4, 0.75) !important;
+  border: none !important; 
+}
+
+.s-chat-message:nth-child(odd) {
+  background: rgba(18, 3, 3, 0.75) !important;
+  border: none !important; 
+}
+
+#chatMessageList[data-pings="enabled"] .s-chat-message_mention {
+  background-color: rgba(99, 0, 0, 0.85) !important;
+  border-left: 6px solid #ff5500 !important;
+  color: #ffffff !important; 
+}
+
+div#lblCharacterCounter {
+  color: #ffaa00 !important; 
+}
+
+html.nolayout {
+  background: none !important; 
+}
+
+/* --- FAPA, KING DYNASTY, ETC. --- */
+.feature {
+  background: rgba(20, 4, 4, 0.75) !important;
+  color: #e0d5d5 !important;
+  border: 2px solid #ff3b00 !important;
+  border-radius: 4px !important; 
+}
+
+div.left {
+  background: rgba(16, 3, 3, 0.75) !important;
+  color: #e0d5d5 !important;
+  border: none !important;
+  border-radius: 4px !important; 
+}
+
+.xsmall {
+  font-size: 14px !important; 
+}
+
+/* --- LION INFO & TABLES --- */
+.top, .bottom, th {
+  background: linear-gradient(90deg, rgba(69, 0, 0, 0.85) 0%, rgba(26, 2, 2, 0.85) 100%) !important;
+  color: #ff5500 !important;
+  border: none !important;
+  border-radius: 0px !important; 
+  font-family: 'Cinzel', serif !important;
+  text-shadow: 0 0 8px rgba(255, 50, 0, 0.65);
+  font-weight: 800;
+}
+
+.bottom a:visited, .bottom a {
+  text-decoration: none !important;
+}
+
+.table .left {
+  background: rgba(26, 5, 5, 0.45);
+  border-radius: 0px !important; 
+}
+
+.inner-table .left {
+  background: rgba(30, 6, 6, 0.65) !important;
+  border-radius: 0px !important; 
+}
+
+.inner-table .right {
+  background: rgba(16, 3, 3, 0.65) !important;
+  border-radius: 0px !important; 
+  color: #e0d5d5 !important; 
+} 
+
+.right_odd {
+  background: none !important; 
+}
+
+/* --- CUSTOM KING TITLE --- */
+#about > tbody > tr:nth-child(1) > td > div::after {
+  content: ' the Infernal';
+  font-size: 17px;
+  color: #ff5500;
+}
+
+/* --- LION AND USER AVATAR OPACITY --- */
+div#lion_image {
+  opacity: 1.0;
+  border-radius: 50%;
+  box-shadow: 0 0 16px rgba(255, 85, 0, 0.6);
+  overflow: hidden; 
+}   
+
+table#player img {
+  opacity: 1.0;
+  border-radius: 50%; 
+}
+
+/* --- TEXT BOXES & BUTTONS --- */
+input, textarea, select, button.button,
+a.btn.btn-default.button {
+  background: linear-gradient(180deg, rgba(102, 0, 0, 0.9) 0%, rgba(37, 0, 0, 0.9) 100%) !important;
+  border: 1px solid #ff4500 !important;
+  border-radius: 4px !important;
+  color: #ffffff !important;
+  font-family: 'Cinzel', serif;
+  text-shadow: none !important; 
+  transition: all 0.2s ease;
+}
+
+input:hover, textarea:hover, select:hover, button.button:hover,
+a.btn.btn-default.button:hover {
+  background: linear-gradient(180deg, #990000 0%, #4a0000 100%) !important;
+  color: #ffcc00 !important;
+  box-shadow: 0 0 14px rgba(255, 85, 0, 0.85);
+}
+
+/* /* CAVE / MOUND IMAGES */
+
+div.cave-grid>img /* Pregnant Lionesses */ {
+	content: url('https://files.catbox.moe/423n84.jpg') !important;
+	opacity: 0.8;
+}
+
+a[href$="cave.php?id=498279"]>div.cave-grid>img /* CRB */ {
+	content: url('https://i.postimg.cc/Ss3fHTx2/Caves-cropped.png') !important;
+}
+
+a[href$="lionoverview.php?id=545955"]>div.cave-grid>img /* Pride Overview */ {
+	content: url('https://i.postimg.cc/wvTXtK76/Unsorted-and-Overview-1-cropped.jpg') !important;
+}
+
+a[href$="cave.php?id=487421"]>div.cave-grid>img /* Mut */ {
+	content: url('https://i.postimg.cc/Ss3fHTx2/Caves-cropped.png') !important;
+}
+
+a[href$="cave.php?id=491878"]>div.cave-grid>img /* Projects */ {
+	content: url('https://i.postimg.cc/Ss3fHTx2/Caves-cropped.png') !important
+}
+
+a[href$="cave.php?id=486478"]>div.cave-grid>img /* Underground */ {
+	content: url('https://i.postimg.cc/Ss3fHTx2/Caves-cropped.png') !important
+}
+
+a[href$="unsorted.php?id=545955"]>div.cave-grid>img /* Unsorted*/ {
+	content: url('https://i.postimg.cc/wvTXtK76/Unsorted-and-Overview-1-cropped.jpg') !important
+}
+
+.mound-grid img /* Mound(s) */ {
+	background: url("https://i.postimg.cc/bvGG4zDZ/Test-as-Background-cropped.png");
+	width: 0;
+	height: 0;
+	padding-top: 90px;
+	padding-right: 100px
+}
+
+/* --- CAVE NAMES & GRIDS --- */
+.cave-grid,
+.mound-grid {
+  background: rgba(20, 4, 4, 0.75) !important;
+  color: #e0d5d5 !important;
+  border: 1px solid rgba(255, 59, 0, 0.3) !important;
+  border-radius: 4px !important; 
+}
